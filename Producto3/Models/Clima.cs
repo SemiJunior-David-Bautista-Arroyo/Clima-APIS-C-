@@ -29,7 +29,7 @@ namespace Producto3.Models
 
     public class Coord
     {
-        public int lon { get; set; }
+        public double lon { get; set; }
         public double lat { get; set; }
     }
 

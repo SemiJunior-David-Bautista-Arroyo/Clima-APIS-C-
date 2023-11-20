@@ -56,7 +56,7 @@ namespace Producto3.Models
                         /* Root Está entrando como una lista de objetos entonces se
                          Deserializa la cadena JSON en una lista de objetos Root
                         */
-                        root = JsonConvert.DeserializeObject<List<Root>>(jsoncadena)[0];// Toma el primer elemento de la lista
+                        root = JsonConvert.DeserializeObject<List<Root>>(jsoncadena).FirstOrDefault();// Toma el primer elemento de la lista si no existe es igual a default
                     }
                     else
                     {
@@ -94,13 +94,13 @@ namespace Producto3.Models
 
         //Utilizar segundo API y obtener datos del clima etc.
         Clima Clima;
-
+        
         public string apikey = "06b86652022e63756bceade342db692d";
         public async Task ObtenerClimaAsync() //utilizar el primer API y obtener coordenadas
         {
 
             DirBase = "https://api.openweathermap.org";
-            string SolicitudClienteURI = $"data/2.5/weather?lat={Lat_()}&lon={Lon_()}&appid={apikey}";
+            string SolicitudClienteURI = $"data/2.5/weather?lat={Lat_()}&lon={Lon_()}&appid={apikey}&lang=es";
 
             try
             {
@@ -138,16 +138,123 @@ namespace Producto3.Models
         }
 
         //Obtener datos del clima
-        public double Temperatura()
+        public double TemperaturaActual()
         {
-            if (Clima != null && Clima.weather != null && Clima.weather.Count > 0)
+            if (Clima != null && Clima.main != null)
             {
-                return Clima.main.temp;
+                double TempActual = Clima.main.temp - 273.15;
+                return TempActual;
             }
             else
             {
                 throw new InvalidOperationException("Datos de clima no disponibles.");
             }
+        }
+
+        public double TemperaturaMaxima()
+        {
+            if (Clima != null && Clima.main != null)
+            {
+                double TempMax = Clima.main.temp_max - 273.15;
+                return TempMax;
+            }
+            else
+            {
+                throw new InvalidOperationException("Datos de clima no disponibles.");
+            }
+        }
+
+        public double TemperaturaMinima()
+        {
+            if (Clima != null && Clima.main != null)
+            {
+                double TempMin = Clima.main.temp_min - 273.15;
+                return TempMin;
+            }
+            else
+            {
+                throw new InvalidOperationException("Datos de clima no disponibles.");
+            }
+        }
+
+        public string ImagenDescriptivaDelClima()
+        {
+            if (Clima != null && Clima.weather != null && Clima.weather.Count > 0)
+            {
+                var img = Clima.weather[0].icon;
+                var urlImg = $"http://openweathermap.org/img/wn/{img}.png";
+                return urlImg;
+            }
+            else
+            {
+                throw new InvalidOperationException("Datos de clima no disponibles.");
+            }
+        }
+
+        public string DescripcionDelClima()
+        {
+            if (Clima != null && Clima.weather != null && Clima.weather.Count > 0)
+            {
+                return Clima.weather[0].description;
+            }
+            else
+            {
+                throw new InvalidOperationException("Datos de clima no disponibles.");
+            }
+        }
+
+        public int Nubosidad()
+        {
+            if (Clima != null && Clima.clouds != null)
+            {
+                return Clima.clouds.all;
+            }
+            else
+            {
+                throw new InvalidOperationException("Datos de clima no disponibles.");
+            }
+        }
+
+        public int Humedad()
+        {
+            if (Clima != null && Clima.main != null)
+            {
+                return Clima.main.humidity;
+            }
+            else
+            {
+                throw new InvalidOperationException("Datos de clima no disponibles.");
+            }
+        }
+
+        public DateTime HoraSalidaDelSol()
+        {
+            if (Clima != null && Clima.sys != null)
+            {
+                return UnixTimeStampToDateTime(Clima.sys.sunrise);
+            }
+            else
+            {
+                throw new InvalidOperationException("Datos de clima no disponibles.");
+            }
+        }
+
+        public DateTime HoraPuestaDeSol()
+        {
+            if (Clima != null && Clima.sys != null)
+            {
+                return UnixTimeStampToDateTime(Clima.sys.sunset);
+            }
+            else
+            {
+                throw new InvalidOperationException("Datos de clima no disponibles.");
+            }
+        }
+
+        // Método para convertir el tiempo Unix a DateTime
+        private DateTime UnixTimeStampToDateTime(int unixTimeStamp)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(unixTimeStamp).ToLocalTime();
         }
 
 

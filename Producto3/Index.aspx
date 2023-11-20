@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Producto3.Index"  Async="true"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="Producto3.Index" Async="true" %>
 
 <!DOCTYPE html>
 
@@ -7,69 +7,72 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+
 </head>
 <body>
     <header align="center">
-        <h1>header</h1>
+        <h1 >BIENVENIDO</h1>
+        
     </header>
     <form id="form1" runat="server">
         <!-- Contenido -->
         <asp:Label ID="Label1" runat="server" Text="&nbsp;"></asp:Label>
         <div class="container mt-5">
-            <h2>Datos Climatológicos</h2><br />
-            <asp:Label ID="Label2" runat="server" Text="&nbsp;"></asp:Label><br />
-            <asp:Label ID="Label3" runat="server" Text="Temperatura"></asp:Label><br />
+            <h2 class="text-center">Datos Climatológicos</h2>
+            <br />
+
             <!-- Contenido de los datos climatológicos -->
-            <span class="h4">Ingresar Estado a buscar</span>
-            <asp:TextBox ID="TextBox1" runat="server" placeholder="Estado"></asp:TextBox>
-            <span class="h4">Ingresar País a buscar</span>
-            <asp:TextBox ID="TextBox2" runat="server" placeholder="País"></asp:TextBox>
-
-            <asp:Label ID="Label5" runat="server" Text="Lat"></asp:Label><br />
-            <asp:Label ID="Label4" runat="server" Text="Lon"></asp:Label><br />
-            <asp:Button ID="Button1" runat="server" Text="Buscar" OnClick="Button1_Click" />
-
-        </div>
-
-        <div class="container mt-5">
-            <h2>Video sobre Puebla</h2>
-            <!-- Agregar contenido relacionado con el clima -->
-        </div>
-
-        <div class="container mt-5">
-            <h2>Precios de Gasolina</h2>
-            <!-- Agregar contenido relacionado con el clima -->
-        </div>
-
-        <div class="container mt-5">
-            <h2>Convertidor de Divisas</h2>
             <div class="row">
-                <div class="col-md-6">
-                    <!-- Dropdown para la moneda origen -->
-                    <select class="form-select mt-3">
-                        <!-- Agregar opciones del dropdown -->
-                    </select>
+                <div class="col-md-6 mb-3">
+                    <span class="h4">Ingresar Ciudad a buscar</span>
+                    <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Ciudad"></asp:TextBox>
                 </div>
-                <div class="col-md-6">
-                    <!-- Dropdown para la moneda destino -->
-                    <select class="form-select mt-3">
-                        <!-- Agregar opciones del dropdown -->
-                    </select>
+                <div class="col-md-6 mb-3">
+                    <span class="h4">Ingresar País a buscar</span>
+                    <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="País"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-md-6">
-                    <!-- Campo para la cantidad a convertir -->
-                    <label for="TextBox8" class="form-label">Cantidad a convertir:</label>
-                    <input type="text" id="TextBox9" class="form-control" placeholder="Insertar cantidad" />
+                <div class="col-md-11 text-center">
+                    <asp:Button ID="Button1" runat="server" Text="Buscar" OnClick="Button1_Click" CssClass="btn btn-primary" /><br />
                 </div>
-                <div class="col-md-6">
-                    <!-- Resultado de la conversión -->
-                    <label for="txtResultado" class="form-label">Resultado:</label>
-                    <input type="text" id="txtResultado" class="form-control" readonly="true" />
+            </div>
+            <br />
+
+            <!-- Presentar las cosas -->
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="h2">
+                            <asp:Label ID="Label120" runat="server" Text=""></asp:Label>
+                        </h2>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-sm-12 col-md-6 text-sm-end h5">
+                        <asp:Label ID="Label2" runat="server" Text="&nbsp;"></asp:Label><br />
+                        <asp:Label ID="Label3" runat="server" Text="Temperatura"></asp:Label><br />
+                        <asp:Label ID="Label4" runat="server" Text="Lon"></asp:Label><br />
+                        <asp:Label ID="Label5" runat="server" Text="Lat"></asp:Label><br />
+                    </div>
+                    <div class="col-sm-12 col-md-6 text-sm-start h5">
+                        <asp:Label ID="Label6" runat="server" Text="&nbsp;"></asp:Label><br />
+                        <asp:Label ID="Label7" runat="server" Text="Temperatura"></asp:Label><br />
+                        <asp:Label ID="Label8" runat="server" Text="Lon"></asp:Label><br />
+                        <asp:Label ID="Label9" runat="server" Text="Lat"></asp:Label><br />
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-md-12 text-center">
+                        <asp:Image ID="Image1" runat="server" CssClass="img-fluid rounded-circle" Width="120" />
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- Aquí termina EL clima-->
+
     </form>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
 </body>
