@@ -7,15 +7,16 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <script src="Jscript/PlayerYouTube.js"></script>
     <link href="estilos/esitlo.css" rel="stylesheet" />
 
 </head>
-<body>
-    <header align="center" >    
+<body onload="onYouTubeIframeAPIReady()">
+    <!-- Se agrega el Onload -->
+    <header align="center">
         <div id="headerbg" runat="server">
             <br />
-            <h1 >BIENVENIDO</h1>
+            <h1>BIENVENIDO</h1>
         </div>
     </header>
     <form id="form1" runat="server">
@@ -30,11 +31,11 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <span class="h4">Ingresar Ciudad a buscar</span>
-                    <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Ciudad" required="true" ></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Ciudad" required="true"></asp:TextBox>
                 </div>
                 <div class="col-md-6 mb-3">
                     <span class="h4">Ingresar Código de País a buscar</span>
-                    <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="Código País" required="true" ></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="Código País" required="true"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-3">
@@ -76,7 +77,29 @@
             </div>
         </div>
         <!-- Aquí termina EL clima-->
+        <!-- Aquí inicia GASOLINAS Y VIDEO DE YOUTUBE-->
 
+        <div class="container" align="center">
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <br />
+                    <br />
+                    <div id="player"></div>
+                    <br />
+                    <br />
+                    <h4 align="center">Saber Precio Por litro de Gasolinas en México</h4>
+                    <span class="h6">Estado:&nbsp</span><asp:TextBox ID="TextBox3" runat="server" placeholder="Estado"></asp:TextBox>
+                    <br />
+                    <br />
+                    <asp:Button ID="Button2" runat="server" Text="Mostrar" Onclick="Button2_Click"  />
+                    <br />
+                    <br />
+                    <br />
+                    <iframe width="230" height="200" frameborder="0" runat="server" id="gasolina"></iframe>
+                </div>
+            </div>
+        </div>
+        <!-- Aquí termina GASOLINAS Y VIDEO DE YOUTUBE-->
     </form>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
 </body>

@@ -92,6 +92,7 @@
     <Content Include="Imagenes\01n.gif" />
     <Content Include="Imagenes\02n.gif" />
     <Content Include="Index.aspx" />
+    <Content Include="Jscript\PlayerYouTube.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -112,6 +113,7 @@
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Clima.cs" />
+    <Compile Include="Models\Codigos.cs" />
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\Root.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

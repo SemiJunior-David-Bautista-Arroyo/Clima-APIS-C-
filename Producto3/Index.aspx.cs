@@ -13,6 +13,7 @@ namespace Producto3
     public partial class Index : System.Web.UI.Page
     {
         Helper Sw;
+        Helper helper;
         public Index()
         {
             Sw = new Helper();
@@ -20,6 +21,8 @@ namespace Producto3
 
         protected async void Page_Load(object sender, EventArgs e)
         {
+            helper = new Helper();
+            //CLIMA
             if (!IsPostBack)//Para que solo se cargue la primera vez
             {
                 Sw.state = "Puebla";
@@ -105,5 +108,27 @@ namespace Producto3
             headerbg.Style.Add("background", color);
             Button1.Style.Add("background",color);
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            helper.Ciudad = TextBox3.Text;
+            string abr = helper.ObtenerAbreviatura();
+
+            if (!string.IsNullOrEmpty(abr))
+            {
+                gasolina.Src = "https://petrointelligence.com/api/api_precios.html?consulta=estado&estado=" + abr;
+            }
+            else
+            {
+                // Visualizar la imagen con la leyenda
+                gasolina.Src = "https://petrointelligence.com/api/api_precios.html?consulta=estado&estado=-1";
+            }
+        }
+        //Aquí inicia GASOLINAS Y VIDEO
+
+
+
+
+
     }
 }

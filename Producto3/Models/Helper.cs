@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using PlayerYouTubeGasolinas.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,10 +21,6 @@ namespace Producto3.Models
 
         HttpMessageHandler Handler;
 
-        public Helper()
-        {
-            
-        }
 
         //Entrada valores de textbox
         public string state { get; set; }
@@ -257,10 +254,226 @@ namespace Producto3.Models
             return new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(unixTimeStamp).ToLocalTime();
         }
 
+        /*Aquí termina el api de geolocalización*/
+        //Inicia gasolinas
 
 
+        /*Aquí termina GASOLINAS Y VIDEO*/
+        public List<Codigos> DatosCodigos { get; set; }
+        public string Ciudad { get; set; }
+        public Helper()
+        {
+            DatosCodigos = new List<Codigos>();
 
+            DatosCodigos.Add(new Codigos
 
+            {
+                Estado = "AGUASCALIENTES",
+                Abreviatura = "AGS"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "BAJA CALIFORNIA",
+                Abreviatura = "BC"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "BAJA CALIFORNIA SUR",
+                Abreviatura = "BCS"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "CAMPECHE",
+                Abreviatura = "CAMP"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "CHIAPAS",
+                Abreviatura = "CHIS"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "CHIHUAHUA",
+                Abreviatura = "CHIH"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "CIUDAD DE MÉXICO",
+                Abreviatura = "CDMX"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "COAHUILA DE ZARAGOZA",
+                Abreviatura = "COAH"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "COLIMA",
+                Abreviatura = "COL"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "DURANGO",
+                Abreviatura = "DGO"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "ESTADO DE MÉXICO",
+                Abreviatura = "MEX"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "GUANAJUATO",
+                Abreviatura = "GTO"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "GUERRERO",
+                Abreviatura = "GRO"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "HIDALGO",
+                Abreviatura = "HGO"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "JALISCO",
+                Abreviatura = "JAL"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "MICHOACÁN DE OCAMPO",
+                Abreviatura = "MICH"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "MORELOS",
+                Abreviatura = "MOR "
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "NAYARIT",
+                Abreviatura = "NAY "
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "NUEVO LEÓN",
+                Abreviatura = "NL"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "OAXACA",
+                Abreviatura = "OAX"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "PUEBLA",
+                Abreviatura = "PUE"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "QUERÉTARO",
+                Abreviatura = "QRO"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "QUINTANA ROO",
+                Abreviatura = "QROO"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "SAN LUIS POTOSÍ",
+                Abreviatura = "SLP"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "SINALOA",
+                Abreviatura = "SIN"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "SONORA",
+                Abreviatura = "SON"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "TABASCO",
+                Abreviatura = "TAB"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "TAMAULIPAS",
+                Abreviatura = "TAMPS"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "TLAXCALA",
+                Abreviatura = "TLAX"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "VERACRUZ",
+                Abreviatura = "VER"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "YUCATÁN",
+                Abreviatura = "YUC"
+            });
+
+            DatosCodigos.Add(new Codigos
+            {
+                Estado = "ZACATECAS",
+                Abreviatura = "ZAC"
+            });
+        }
+        //Aqui el cliente HTT´para la API de geolocalizacion
+        //Aqui el cliente HTT´para la API de datos climatologicos
+
+        public string ObtenerAbreviatura()
+        {
+            string abreviatura = "";
+            for (int i = 0; i <= DatosCodigos.Count - 1; ++i)
+            {
+                if (DatosCodigos[i].Estado.ToUpper() == Ciudad.ToUpper())
+                {
+                    abreviatura = DatosCodigos[i].Abreviatura;
+                    break;
+                }
+            }
+            return abreviatura;
+        }
 
 
     }
