@@ -20,10 +20,11 @@
     </header>
     <form id="form1" runat="server">
         <!-- Contenido -->
+        <asp:Label ID="Label1" runat="server" Text="" align="center"></asp:Label>
         <div class="container mt-5">
-        <asp:Label ID="Label1" runat="server" Text="&nbsp;"></asp:Label>
             <h2 class="text-center">Datos Climatológicos</h2>
             <br />
+            <asp:Label ID="Label121" runat="server" Text=""></asp:Label>
 
             <!-- Contenido de los datos climatológicos -->
             <div class="row">
@@ -32,8 +33,8 @@
                     <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Ciudad" required="true" ></asp:TextBox>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <span class="h4">Ingresar País a buscar</span>
-                    <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="País" required="true" ></asp:TextBox>
+                    <span class="h4">Ingresar Código de País a buscar</span>
+                    <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="Código País" required="true" ></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-3">

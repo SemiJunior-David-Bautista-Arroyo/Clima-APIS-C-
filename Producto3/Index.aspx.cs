@@ -32,6 +32,7 @@ namespace Producto3
                 await Sw.ObtenerClimaAsync();
                 MostrarDatosClimatologicos();//Metodo para mostrar los datos
                 
+
             }
             catch (Exception)
             {
@@ -43,18 +44,26 @@ namespace Producto3
         protected async void Button1_Click(object sender, EventArgs e)
         {
             //Se obtienen los valores de los textbox y se mandan como valor de state y country code
-            Sw.state = TextBox1.Text;
-            Sw.countrycode = TextBox2.Text;
+            if (TextBox2.Text.Length < 4) {
+                Sw.state = TextBox1.Text;
+                Sw.countrycode = TextBox2.Text;
+            
 
             try
             {
                 await Sw.ObtenerCoordenadasAsync();
                 await Sw.ObtenerClimaAsync();
                 MostrarDatosClimatologicos();
+                
             }
             catch (Exception)
             {
                 Label1.Text = Sw.Error;
+            }
+            }
+            else
+            {
+                Label121.Text = "Código de País no encontrado";
             }
         }
 
@@ -62,6 +71,8 @@ namespace Producto3
         {
             //Mostrar temperatura 
             Label120.Text = Sw.Name();
+            
+
             Label2.Text = $"Temperatura Actual: {Sw.TemperaturaActual()} °C";
             Label3.Text = $"Temperatura Máxima: {Sw.TemperaturaMaxima()} °C";
             Label4.Text = $"Temperatura Mínima: {Sw.TemperaturaMinima()} °C";
