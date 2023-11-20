@@ -50,7 +50,8 @@ namespace Producto3
             if (TextBox2.Text.Length < 4) {
                 Sw.state = TextBox1.Text;
                 Sw.countrycode = TextBox2.Text;
-            
+                helper.Ciudad = TextBox1.Text;
+
 
             try
             {
@@ -99,6 +100,10 @@ namespace Producto3
             {
                 
                 color = "aqua";
+            }else if (Sw.DescripcionDelClima().ToLower() == "nubes dispersas")
+            {
+                
+                color = "gray";
             }
             else if (Sw.DescripcionDelClima().ToLower() == "nubes")
             {
@@ -107,11 +112,9 @@ namespace Producto3
             }
             headerbg.Style.Add("background", color);
             Button1.Style.Add("background",color);
-        }
 
-        protected void Button2_Click(object sender, EventArgs e)
-        {
-            helper.Ciudad = TextBox3.Text;
+            //Aquí inicia GASOLINAS
+            
             string abr = helper.ObtenerAbreviatura();
 
             if (!string.IsNullOrEmpty(abr))
@@ -124,7 +127,7 @@ namespace Producto3
                 gasolina.Src = "https://petrointelligence.com/api/api_precios.html?consulta=estado&estado=-1";
             }
         }
-        //Aquí inicia GASOLINAS Y VIDEO
+
 
 
 

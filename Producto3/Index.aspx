@@ -87,15 +87,13 @@
                     <div id="player"></div>
                     <br />
                     <br />
-                    <h4 align="center">Saber Precio Por litro de Gasolinas en México</h4>
-                    <span class="h6">Estado:&nbsp</span><asp:TextBox ID="TextBox3" runat="server" placeholder="Estado"></asp:TextBox>
-                    <br />
-                    <br />
-                    <asp:Button ID="Button2" runat="server" Text="Mostrar" Onclick="Button2_Click"  />
+                    <h4 align="center">Precio Por litro de Gasolina en México</h4>
                     <br />
                     <br />
                     <br />
-                    <iframe width="230" height="200" frameborder="0" runat="server" id="gasolina"></iframe>
+                    <br />
+                    <br />
+                    <iframe width="380" height="580" frameborder="0" runat="server" id="gasolina"></iframe>
                 </div>
             </div>
         </div>
