@@ -8,17 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <link href="estilos/esitlo.css" rel="stylesheet" />
 
 </head>
 <body>
-    <header align="center">
-        <h1 >BIENVENIDO</h1>
-        
+    <header align="center" >    
+        <div id="headerbg" runat="server">
+            <br />
+            <h1 >BIENVENIDO</h1>
+        </div>
     </header>
     <form id="form1" runat="server">
         <!-- Contenido -->
-        <asp:Label ID="Label1" runat="server" Text="&nbsp;"></asp:Label>
         <div class="container mt-5">
+        <asp:Label ID="Label1" runat="server" Text="&nbsp;"></asp:Label>
             <h2 class="text-center">Datos Climatológicos</h2>
             <br />
 
@@ -26,16 +29,16 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <span class="h4">Ingresar Ciudad a buscar</span>
-                    <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Ciudad"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Ciudad" required="true" ></asp:TextBox>
                 </div>
                 <div class="col-md-6 mb-3">
                     <span class="h4">Ingresar País a buscar</span>
-                    <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="País"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="País" required="true" ></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-3">
-                <div class="col-md-11 text-center">
-                    <asp:Button ID="Button1" runat="server" Text="Buscar" OnClick="Button1_Click" CssClass="btn btn-primary" /><br />
+                <div class="col-md-12 text-center">
+                    <asp:Button ID="Button1" runat="server" Text="Buscar" OnClick="Button1_Click" CssClass="btn" /><br />
                 </div>
             </div>
             <br />

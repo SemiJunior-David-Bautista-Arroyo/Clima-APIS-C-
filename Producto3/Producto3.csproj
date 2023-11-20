@@ -87,6 +87,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="estilos\esitlo.css" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes\01n.gif" />
     <Content Include="Imagenes\02n.gif" />

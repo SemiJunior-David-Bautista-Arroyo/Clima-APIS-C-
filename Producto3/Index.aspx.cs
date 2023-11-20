@@ -79,19 +79,20 @@ namespace Producto3
 
             if (Sw.DescripcionDelClima().ToLower() == "cielo claro")
             {
-                color = "green";
+                color = "#BDECB6";
             }
             else if (Sw.DescripcionDelClima().ToLower() == "algo de nubes")
             {
                 
-                color = "yellow";
+                color = "aqua";
             }
             else if (Sw.DescripcionDelClima().ToLower() == "nubes")
             {
                 
                 color = "#C8A2C8";
             }
-            Header.Style.Add("background", color);
+            headerbg.Style.Add("background", color);
+            Button1.Style.Add("background",color);
         }
     }
 }
