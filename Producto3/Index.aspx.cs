@@ -124,7 +124,7 @@ namespace Producto3
                 letra = "white";
                 
             }
-            else if (Sw.DescripcionDelClima().ToLower() == "niebla")
+            else if (Sw.DescripcionDelClima().ToLower() == "nieve")
             {
                 color = "#9dcfdd";
             }
