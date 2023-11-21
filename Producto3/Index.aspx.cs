@@ -91,6 +91,7 @@ namespace Producto3
             Image1.AlternateText = "Clima Icon";
             //Cambiar de color el head
             string color = "";
+            string letra = "";
 
             if (Sw.DescripcionDelClima().ToLower() == "cielo claro")
             {
@@ -109,9 +110,25 @@ namespace Producto3
             {
                 
                 color = "#C8A2C8";
+            }else if (Sw.DescripcionDelClima().ToLower() == "lluvia ligera")
+            {
+                
+                color = "#675f6d";
+            }else if (Sw.DescripcionDelClima().ToLower() == "niebla")
+            {
+                color = "#000000";
+                letra = "white";
+            }else if (Sw.DescripcionDelClima().ToLower() == "muy nuboso")
+            {
+                color = "pink";
+                letra = "white";
             }
+
             headerbg.Style.Add("background", color);
+            headerbg.Style.Add("color", letra);
             Button1.Style.Add("background",color);
+            Button1.Style.Add("color",letra);
+            
 
             //Aquí inicia GASOLINAS
             

@@ -89,10 +89,6 @@
                     <br />
                     <h4 align="center">Precio Por litro de Gasolina en México</h4>
                     <br />
-                    <br />
-                    <br />
-                    <br />
-                    <br />
                     <iframe width="380" height="580" frameborder="0" runat="server" id="gasolina"></iframe>
                 </div>
             </div>
