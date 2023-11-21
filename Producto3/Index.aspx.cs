@@ -122,6 +122,11 @@ namespace Producto3
             {
                 color = "pink";
                 letra = "white";
+                
+            }
+            else if (Sw.DescripcionDelClima().ToLower() == "niebla")
+            {
+                color = "#9dcfdd";
             }
 
             headerbg.Style.Add("background", color);
