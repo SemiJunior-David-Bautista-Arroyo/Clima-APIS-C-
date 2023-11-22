@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Jscript/PlayerYouTube.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="estilos/esitlo.css" rel="stylesheet" />
 
 </head>
@@ -46,7 +47,13 @@
             <br />
 
             <!-- Presentar las cosas -->
-            <div class="container mt-4">
+            <div class="container  mt-4">
+                <div class="row mt-4">
+                    <div class="col-md-12 text-center">
+                        <asp:Image ID="Image1" runat="server" CssClass="img-fluid rounded-circle" Width="150" />
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-md-12 text-center">
                         <h2 class="h2">
@@ -56,24 +63,35 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-sm-12 col-md-6 text-sm-end h5">
+                        <span class="material-symbols-outlined">thermometer
+                        </span>
                         <asp:Label ID="Label2" runat="server" Text="&nbsp;"></asp:Label><br />
+                        <span class="material-symbols-outlined">thermometer_gain
+                        </span>
                         <asp:Label ID="Label3" runat="server" Text="Temperatura"></asp:Label><br />
+                        <span class="material-symbols-outlined">thermometer_loss
+                        </span>
                         <asp:Label ID="Label4" runat="server" Text="Lon"></asp:Label><br />
+                        <span class="material-symbols-outlined">nest_farsight_weather
+                        </span>
                         <asp:Label ID="Label5" runat="server" Text="Lat"></asp:Label><br />
                     </div>
                     <div class="col-sm-12 col-md-6 text-sm-start h5">
+                        <span class="material-symbols-outlined">partly_cloudy_day
+                        </span>
                         <asp:Label ID="Label6" runat="server" Text="&nbsp;"></asp:Label><br />
+                        <span class="material-symbols-outlined">humidity_percentage
+                        </span>
                         <asp:Label ID="Label7" runat="server" Text="Temperatura"></asp:Label><br />
+                        <span class="material-symbols-outlined">clear_day
+                        </span>
                         <asp:Label ID="Label8" runat="server" Text="Lon"></asp:Label><br />
+                        <span class="material-symbols-outlined">dark_mode
+                        </span>
                         <asp:Label ID="Label9" runat="server" Text="Lat"></asp:Label><br />
                     </div>
                 </div>
 
-                <div class="row mt-4">
-                    <div class="col-md-12 text-center">
-                        <asp:Image ID="Image1" runat="server" CssClass="img-fluid rounded-circle" Width="120" />
-                    </div>
-                </div>
             </div>
         </div>
         <!-- Aquí termina EL clima-->
@@ -89,7 +107,7 @@
                     <br />
                     <h4 align="center">Precio Por litro de Gasolina en México</h4>
                     <br />
-                    <iframe width="380" height="580" frameborder="0" runat="server" id="gasolina"></iframe>
+                    <iframe width="680" height="580" frameborder="0" runat="server" id="gasolina"></iframe>
                 </div>
             </div>
         </div>
