@@ -114,6 +114,7 @@
     </Compile>
     <Compile Include="Models\Clima.cs" />
     <Compile Include="Models\Codigos.cs" />
+    <Compile Include="Models\conversor.cs" />
     <Compile Include="Models\Helper.cs" />
     <Compile Include="Models\Root.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
