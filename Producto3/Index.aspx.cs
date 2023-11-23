@@ -184,21 +184,24 @@ namespace Producto3
             }
         }
 
-
+        // parte de las divisas
         protected async void btnConvertir_Click(object sender, EventArgs e)
         {
-            string monedaOrigen = ddlMonedaOrigen.SelectedValue;
-            string monedaDestino = ddlMonedaDestino.SelectedValue;
+            Sw.FromCurrency= ddlMonedaOrigen.SelectedValue;
+
+            Sw.ToCurrency = ddlMonedaDestino.SelectedValue;
+
+            Sw.Amount = Convert.ToDouble(txtCantidad.Text);
 
             // Intenta convertir la cantidad y verifica si la conversión fue exitosa
-            if (double.TryParse(txtCantidad.Text, NumberStyles.Float, CultureInfo.InvariantCulture, out double cantidad))
+            if (Sw.Amount > 0)
             {
-                Helper helper = new Helper();
-                await helper.ObtenerConversionAsync(monedaOrigen, monedaDestino, cantidad);
+
+                await Sw.ObtenerConversionAsync();
 
                 // Muestra el resultado de la conversión
 
-                lblResultado.Text = $"El resultado de la conversión es: {helper.ConvertedAmount}";
+                lblResultado.Text = $"El resultado de la conversión es: {Sw.ConvertedAmount}";
 
             }
             else

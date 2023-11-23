@@ -476,21 +476,21 @@ namespace Producto3.Models
             return abreviatura;
         }
         //Inicia divisas
-
+        ConversionResponse resultadoConversion;
 
         public string FromCurrency { get; set; }
         public string ToCurrency { get; set; }
         public double Amount { get; set; }
         public double ConvertedAmount { get; set; }
 
-        public async Task ObtenerConversionAsync(string monedaOrigen, string monedaDestino, double cantidad)
+        public async Task ObtenerConversionAsync()
         {
             try
             {
                 string apiKey = "ffd0b5621a5e473dae99384e8dffdc1d";
                 string baseUri = "https://exchange-rates.abstractapi.com";
 
-                string requestUri = $"/v1/convert?api_key={apiKey}&base={monedaOrigen}&target={monedaDestino}&base_amount={cantidad}";
+                string requestUri = $"/v1/convert?api_key={apiKey}&base={FromCurrency}&target={ToCurrency}&base_amount={Amount}";
 
                 using (var cliente = new HttpClient())
                 {
@@ -505,8 +505,7 @@ namespace Producto3.Models
                     {
                         var jsonCadena = await respuesta.Content.ReadAsStringAsync();
 
-                        var resultadoConversion = JsonConvert.DeserializeObject<ConversionResponse>(jsonCadena);
-
+                        resultadoConversion = JsonConvert.DeserializeObject<ConversionResponse>(jsonCadena);
                         ConvertedAmount = resultadoConversion.ConvertedAmount;
                     }
                     else
