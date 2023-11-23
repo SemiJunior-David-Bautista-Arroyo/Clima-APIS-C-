@@ -476,7 +476,8 @@ namespace Producto3.Models
             return abreviatura;
         }
         //Inicia divisas
-        ConversionResponse divisasdata;
+
+
         public string FromCurrency { get; set; }
         public string ToCurrency { get; set; }
         public double Amount { get; set; }

@@ -32,11 +32,11 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <span class="h4">Ingresar Ciudad a buscar</span>
-                    <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Ciudad" required="true"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Ciudad" required="true" minlength="5"></asp:TextBox>
                 </div>
                 <div class="col-md-6 mb-3">
                     <span class="h4">Ingresar Código de País a buscar</span>
-                    <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="Código País" required="true"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="Código País" required="true" MaxLength="3"></asp:TextBox>
                 </div>
             </div>
             <div class="row mt-3">
@@ -112,55 +112,52 @@
             </div>
         </div>
         <!-- Aquí termina GASOLINAS Y VIDEO DE YOUTUBE-->
-        <!-- MODAL-->
-        <div class="container " align="center">
+        <div class="container" align="center">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-mt-12">
                     <h1>Conversor de Divisas</h1>
                     <!-- Botón que abre el modal -->
                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-                        Abrir Conversor
+                        Abrir Conversor de Divisas
                     </button>
                 </div>
             </div>
         </div>
-        <br /><br />
 
         <!-- Modal -->
-        <div class="modal" id="myModal">
+        <div class="modal" id="myModal" role="dialog">
             <div class="modal-dialog">
+                <!-- Contenido del modal -->
                 <div class="modal-content">
-
-                    <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">Conversor de Divisas</h4>
-                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-
-                    <!-- Modal body -->
                     <div class="modal-body">
-                        <label for="ddlMonedaOrigen">Moneda de Origen:</label>
+                        <label for="ddlMonedaOrigen">Moneda Origen:</label>
                         <asp:DropDownList ID="ddlMonedaOrigen" runat="server"></asp:DropDownList>
 
-                        <label for="ddlMonedaDestino">Moneda de Destino:</label>
+                        <label for="ddlMonedaDestino">Moneda Destino:</label>
                         <asp:DropDownList ID="ddlMonedaDestino" runat="server"></asp:DropDownList>
 
                         <label for="txtCantidad">Cantidad a Convertir:</label>
-                        <asp:TextBox ID="txtCantidad" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtCantidad" runat="server" placeholder="Cantidad"></asp:TextBox>
 
-                        <asp:Button ID="btnConvertir" CssClass="btn btn-success" runat="server" Text="Calcular" OnClick="btnConvertir_Click" />
+                        <asp:Button ID="Button2" runat="server" Text="Calcular" OnClick="btnConvertir_Click" CssClass="btn btn-primary" />
+                        <br />
 
                         <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
                     </div>
-
-                    <!-- Modal footer -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                     </div>
-
                 </div>
             </div>
         </div>
+        <br />
+        <br />
+
+
         <!--Aquí deberá terminar conversor -->
     </form>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
