@@ -15,9 +15,11 @@
 <body onload="onYouTubeIframeAPIReady()">
     <!-- Se agrega el Onload -->
     <header align="center">
-        <div id="headerbg" runat="server">
-            <br />
-            <h1>BIENVENIDO</h1>
+        <div class="container">
+            <div id="headerbg" runat="server">
+                <br />
+                <h1>BIENVENIDO</h1>
+            </div>
         </div>
     </header>
     <form id="form1" runat="server">
@@ -35,7 +37,7 @@
                     <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Ciudad" required="true" minlength="5"></asp:TextBox>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <span class="h4">Ingresar Código de País a buscar</span>
+                    <span class="h4">Ingresar Código de País</span>
                     <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="Código País" required="true" MaxLength="3"></asp:TextBox>
                 </div>
             </div>
@@ -62,7 +64,9 @@
                     </div>
                 </div>
                 <div class="row mt-4">
-                    <div class="col-sm-12 col-md-6 text-sm-end h5">
+                    <div class="col-sm-12 col-md-6 text-center h5">
+                        <span class="h4">Datos Sobre Temperatura</span><br />
+                        <br />
                         <span class="material-symbols-outlined">thermometer
                         </span>
                         <asp:Label ID="Label2" runat="server" Text="&nbsp;"></asp:Label><br />
@@ -76,7 +80,9 @@
                         </span>
                         <asp:Label ID="Label5" runat="server" Text="Lat"></asp:Label><br />
                     </div>
-                    <div class="col-sm-12 col-md-6 text-sm-start h5">
+                    <div class="col-sm-12 col-md-6 text-center h5">
+                        <span class="h4">Datos Sobre El Clima</span><br />
+                        <br />
                         <span class="material-symbols-outlined">partly_cloudy_day
                         </span>
                         <asp:Label ID="Label6" runat="server" Text="&nbsp;"></asp:Label><br />
@@ -95,7 +101,7 @@
             </div>
         </div>
         <!-- Aquí termina EL clima-->
-        <!-- Aquí inicia GASOLINAS Y VIDEO DE YOUTUBE-->
+        <!-- Aquí inicia GASOLINAS -->
 
         <div class="container" align="center">
             <div class="row">
@@ -111,7 +117,7 @@
                 </div>
             </div>
         </div>
-        <!-- Aquí termina GASOLINAS Y VIDEO DE YOUTUBE-->
+        <!-- Aquí termina GASOLINAS-->
         <div class="container" align="center">
             <div class="row">
                 <div class="col-sm-12 col-md-12 col-mt-12">
@@ -131,7 +137,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">Conversor de Divisas</h4>
-                        <button type="button" class="close" data-bs-dismiss="modal" >x</button>
+                        <button type="button" class="close" data-bs-dismiss="modal">x</button>
                     </div>
                     <div class="modal-body">
                         <label for="ddlMonedaOrigen" class="h4">Moneda Origen:</label><br />
@@ -143,7 +149,7 @@
                         <label for="txtCantidad" class="h4">Cantidad a Convertir: </label>
                         <asp:TextBox ID="txtCantidad" runat="server" placeholder="Cantidad"></asp:TextBox>
 
-                        <asp:Button ID="Button2" runat="server" Text="Calcular" OnClick="btnConvertir_Click" CssClass="btn btn-primary" />
+                        <asp:Button ID="Button2" runat="server" Text="Calcular" OnClick="btnConvertir_Click" CssClass="btn btn-success" />
                         <br />
 
                         <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>

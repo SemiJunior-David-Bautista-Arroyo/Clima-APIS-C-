@@ -68,7 +68,7 @@ namespace Producto3
                 await Sw.ObtenerCoordenadasAsync();
                 await Sw.ObtenerClimaAsync();
                 MostrarDatosClimatologicos();//Metodo para mostrar los datos
-                
+
 
             }
             catch (Exception)
@@ -81,23 +81,24 @@ namespace Producto3
         protected async void Button1_Click(object sender, EventArgs e)
         {
             //Se obtienen los valores de los textbox y se mandan como valor de state y country code
-            if (TextBox2.Text.Length < 4) {
+            if (TextBox2.Text.Length < 4)
+            {
                 Sw.state = TextBox1.Text;
                 Sw.countrycode = TextBox2.Text;
                 helper.Ciudad = TextBox1.Text;
 
 
-            try
-            {
-                await Sw.ObtenerCoordenadasAsync();
-                await Sw.ObtenerClimaAsync();
-                MostrarDatosClimatologicos();
-                
-            }
-            catch (Exception)
-            {
-                Label1.Text = Sw.Error;
-            }
+                try
+                {
+                    await Sw.ObtenerCoordenadasAsync();
+                    await Sw.ObtenerClimaAsync();
+                    MostrarDatosClimatologicos();
+
+                }
+                catch (Exception)
+                {
+                    Label1.Text = Sw.Error;
+                }
             }
             else
             {
@@ -109,7 +110,7 @@ namespace Producto3
         {
             //Mostrar temperatura 
             Label120.Text = Sw.Name();
-            
+
 
             Label2.Text = $"Temperatura Actual: {Sw.TemperaturaActual()} °C";
             Label3.Text = $"Temperatura Máxima: {Sw.TemperaturaMaxima()} °C";
@@ -133,30 +134,34 @@ namespace Producto3
             }
             else if (Sw.DescripcionDelClima().ToLower() == "algo de nubes")
             {
-                
+
                 color = "aqua";
-            }else if (Sw.DescripcionDelClima().ToLower() == "nubes dispersas")
+            }
+            else if (Sw.DescripcionDelClima().ToLower() == "nubes dispersas")
             {
-                
+
                 color = "gray";
             }
             else if (Sw.DescripcionDelClima().ToLower() == "nubes")
             {
-                
+
                 color = "#C8A2C8";
-            }else if (Sw.DescripcionDelClima().ToLower() == "lluvia ligera")
+            }
+            else if (Sw.DescripcionDelClima().ToLower() == "lluvia ligera")
             {
-                
+
                 color = "#675f6d";
-            }else if (Sw.DescripcionDelClima().ToLower() == "niebla")
+            }
+            else if (Sw.DescripcionDelClima().ToLower() == "niebla")
             {
                 color = "#000000";
                 letra = "white";
-            }else if (Sw.DescripcionDelClima().ToLower() == "muy nuboso")
+            }
+            else if (Sw.DescripcionDelClima().ToLower() == "muy nuboso")
             {
                 color = "pink";
                 letra = "white";
-                
+
             }
             else if (Sw.DescripcionDelClima().ToLower() == "nieve")
             {
@@ -165,12 +170,12 @@ namespace Producto3
 
             headerbg.Style.Add("background", color);
             headerbg.Style.Add("color", letra);
-            Button1.Style.Add("background",color);
-            Button1.Style.Add("color",letra);
-            
+            Button1.Style.Add("background", color);
+            Button1.Style.Add("color", letra);
+
 
             //Aquí inicia GASOLINAS
-            
+
             string abr = helper.ObtenerAbreviatura();
 
             if (!string.IsNullOrEmpty(abr))
@@ -187,27 +192,40 @@ namespace Producto3
         // parte de las divisas
         protected async void btnConvertir_Click(object sender, EventArgs e)
         {
-            Sw.FromCurrency= ddlMonedaOrigen.SelectedValue;
-
-            Sw.ToCurrency = ddlMonedaDestino.SelectedValue;
-
-            Sw.Amount = Convert.ToDouble(txtCantidad.Text);
-
-            // Intenta convertir la cantidad y verifica si la conversión fue exitosa
-            if (Sw.Amount > 0)
+            try
             {
+                Sw.FromCurrency = ddlMonedaOrigen.SelectedValue;
+                Sw.ToCurrency = ddlMonedaDestino.SelectedValue;
 
-                await Sw.ObtenerConversionAsync();
+                // Verifica si el texto en txtCantidad es un número válido antes de intentar la conversión
+                if (double.TryParse(txtCantidad.Text, out double amount))
+                {
+                    Sw.Amount = amount;
 
-                // Muestra el resultado de la conversión
+                    // Intenta convertir la cantidad y verifica si la conversión fue exitosa
+                    if (Sw.Amount > 0)
+                    {
+                        await Sw.ObtenerConversionAsync();
 
-                lblResultado.Text = $"El resultado de la conversión es: {Sw.ConvertedAmount}";
-
+                        // Muestra el resultado de la conversión
+                        lblResultado.Text = $"El resultado de la conversión es: ${Sw.ConvertedAmount}";
+                    }
+                    else
+                    {
+                        // Manejar el caso en el que la conversión de la cantidad no fue exitosa
+                        lblResultado.Text = "Ingrese una cantidad válida.";
+                    }
+                }
+                else
+                {
+                    // Manejar el caso en el que la entrada no es un número válido
+                    lblResultado.Text = "Ingrese una cantidad válida.";
+                }
             }
-            else
+            catch (Exception)
             {
-                // Manejar el caso en el que la conversión de la cantidad no fue exitosa
-                lblResultado.Text = "Ingrese una cantidad válida.";
+                // Maneja la excepción en caso de que Sw.Amount sea nulo
+                lblResultado.Text = "Favor de llenar todos los datos.";
             }
         }
     }
