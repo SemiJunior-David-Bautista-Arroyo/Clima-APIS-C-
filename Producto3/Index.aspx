@@ -28,79 +28,95 @@
         <div class="container mt-5">
             <h2 class="text-center">Datos Climatológicos</h2>
             <br />
-            <asp:Label ID="Label121" runat="server" Text=""></asp:Label>
 
-            <!-- Contenido de los datos climatológicos -->
+            <!-- Formulario de búsqueda -->
             <div class="row">
-                <div class="col-md-6 mb-3">
+                <div class="col-md-4">
                     <span class="h4">Ingresar Ciudad a buscar</span>
                     <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Ciudad" required="true" minlength="5"></asp:TextBox>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-4">
                     <span class="h4">Ingresar Código de País</span>
                     <asp:TextBox ID="TextBox2" runat="server" class="form-control" placeholder="Código País" required="true" MaxLength="3"></asp:TextBox>
                 </div>
-            </div>
-            <div class="row mt-3">
-                <div class="col-md-12 text-center">
+                <div class="col-md-4 text-center">
                     <asp:Button ID="Button1" runat="server" Text="Buscar" OnClick="Button1_Click" CssClass="btn" /><br />
                 </div>
             </div>
             <br />
 
-            <!-- Presentar las cosas -->
-            <div class="container  mt-4">
-                <div class="row mt-4">
-                    <div class="col-md-12 text-center">
-                        <asp:Image ID="Image1" runat="server" CssClass="img-fluid rounded-circle" Width="150" />
-                    </div>
+            <!-- Presentación de datos climatológicos -->
+            <div class="row">
+                <!-- Mapa izquierdo -->
+                <div class="col-md-4">
+                    <iframe id="mapa" width="400" height="480" frameborder="0" runat="server"></iframe>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h2 class="h2">
-                            <asp:Label ID="Label120" runat="server" Text=""></asp:Label>
-                        </h2>
-                    </div>
-                </div>
-                <div class="row mt-4">
-                    <div class="col-sm-12 col-md-6 text-center h5">
-                        <span class="h4">Datos Sobre Temperatura</span><br />
-                        <br />
-                        <span class="material-symbols-outlined">thermometer
-                        </span>
-                        <asp:Label ID="Label2" runat="server" Text="&nbsp;"></asp:Label><br />
-                        <span class="material-symbols-outlined">thermometer_gain
-                        </span>
-                        <asp:Label ID="Label3" runat="server" Text="Temperatura"></asp:Label><br />
-                        <span class="material-symbols-outlined">thermometer_loss
-                        </span>
-                        <asp:Label ID="Label4" runat="server" Text="Lon"></asp:Label><br />
-                        <span class="material-symbols-outlined">nest_farsight_weather
-                        </span>
-                        <asp:Label ID="Label5" runat="server" Text="Lat"></asp:Label><br />
-                    </div>
-                    <div class="col-sm-12 col-md-6 text-center h5">
-                        <span class="h4">Datos Sobre El Clima</span><br />
-                        <br />
-                        <span class="material-symbols-outlined">partly_cloudy_day
-                        </span>
-                        <asp:Label ID="Label6" runat="server" Text="&nbsp;"></asp:Label><br />
-                        <span class="material-symbols-outlined">humidity_percentage
-                        </span>
-                        <asp:Label ID="Label7" runat="server" Text="Temperatura"></asp:Label><br />
-                        <span class="material-symbols-outlined">clear_day
-                        </span>
-                        <asp:Label ID="Label8" runat="server" Text="Lon"></asp:Label><br />
-                        <span class="material-symbols-outlined">dark_mode
-                        </span>
-                        <asp:Label ID="Label9" runat="server" Text="Lat"></asp:Label><br />
-                    </div>
-                </div>
+                <!-- Datos climatológicos en el centro -->
+                <div class="col-md-4">
+                    <div class="container mt-4">
+                        <div class="row mt-4">
+                            <div class="col-md-12 text-center">
+                                <asp:Image ID="Image1" runat="server" CssClass="img-fluid rounded-circle" Width="150" />
+                            </div>
+                        </div>
 
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <h2 class="h2">
+                                    <asp:Label ID="Label120" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="Label121" runat="server" Text=""></asp:Label>
+                                </h2>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-4">
+                            <div class="col-sm-12 col-md-6 text-center h5">
+                                <span class="h4">Datos Tiempo</span><br />
+                                <br />
+                                <span class="material-symbols-outlined">thermometer
+                                </span>
+                                <asp:Label ID="Label2" runat="server" Text="&nbsp;"></asp:Label><br />
+                                <span class="material-symbols-outlined">thermometer_gain
+                                </span>
+                                <asp:Label ID="Label3" runat="server" Text="Temperatura"></asp:Label><br />
+                                <span class="material-symbols-outlined">thermometer_loss
+                                </span>
+                                <asp:Label ID="Label4" runat="server" Text="Lon"></asp:Label><br />
+                                <span class="material-symbols-outlined">nest_farsight_weather
+                                </span>
+                                <asp:Label ID="Label5" runat="server" Text="Lat"></asp:Label><br />
+                            </div>
+
+                            <div class="col-sm-12 col-md-6 text-center h5">
+                                <span class="h4">Datos Clima</span><br />
+                                <br />
+                                <span class="material-symbols-outlined">partly_cloudy_day
+                                </span>
+                                <asp:Label ID="Label6" runat="server" Text="&nbsp;"></asp:Label><br />
+                                <span class="material-symbols-outlined">humidity_percentage
+                                </span>
+                                <asp:Label ID="Label7" runat="server" Text="Temperatura"></asp:Label><br />
+                                <span class="material-symbols-outlined">clear_day
+                                </span>
+                                <asp:Label ID="Label8" runat="server" Text="Lon"></asp:Label><br />
+                                <span class="material-symbols-outlined">dark_mode
+                                </span>
+                                <asp:Label ID="Label9" runat="server" Text="Lat"></asp:Label><br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--MAPAS DE LOCALIZACIÓN Y CLIMA -->
+                <div class="col-md-4">
+                    <iframe id="mapaclima" width="420" height="500" frameborder="0" runat="server"></iframe>
+                </div>
             </div>
         </div>
+
         <!-- Aquí termina EL clima-->
+
         <!-- Aquí inicia GASOLINAS -->
 
         <div class="container" align="center">
@@ -108,12 +124,12 @@
                 <div class="col-sm-12 col-md-12">
                     <br />
                     <br />
-                    <div id="player"></div>
+                    <div class="embed-responsive embed-responsive-16by9" id="player"></div>
                     <br />
                     <br />
                     <h4 align="center">Precio Por litro de Gasolina en México</h4>
                     <br />
-                    <iframe width="680" height="580" frameborder="0" runat="server" id="gasolina"></iframe>
+                        <iframe width="680" frameborder="0" runat="server" id="gasolina"></iframe>
                 </div>
             </div>
         </div>

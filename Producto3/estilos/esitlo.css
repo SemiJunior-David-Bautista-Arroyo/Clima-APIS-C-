@@ -2,3 +2,12 @@
     top: 15px;
     height:130px;
 }
+
+@media (max-width: 1200px) {
+    #mapa,
+    #player,
+    #mapaclima {
+        width: 100%;
+        height: 300px; /* Puedes ajustar este valor según tus necesidades */
+    }
+}

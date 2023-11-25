@@ -124,6 +124,14 @@ namespace Producto3
             //Imagen del clima
             Image1.Attributes.Add("src", Sw.ImagenDescriptivaDelClima());
             Image1.AlternateText = "Clima Icon";
+            //Mapas
+            string llatitud = Sw.Lat_();
+            string llongitud = Sw.Lon_();
+            mapa.Src = $"https://maps.google.com/?ll="+ llatitud + "," + llongitud + "&z=8&t=m&output=embed";
+            //Mapa clima
+            mapaclima.Src = "https://openweathermap.org/weathermap?basemap=map&cities=false&layer=temperature&lat="+ llatitud +"&lon=" + llongitud +"&zoom=10";
+
+
             //Cambiar de color el head
             string color = "";
             string letra = "";
