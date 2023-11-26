@@ -24,16 +24,16 @@
     </header>
     <form id="form1" runat="server">
         <!-- Contenido -->
-        <asp:Label ID="Label1" runat="server" Text="" align="center"></asp:Label>
         <div class="container mt-5">
             <h2 class="text-center">Datos Climatológicos</h2>
+        <asp:Label ID="Label1" runat="server" CssClass="text-danger" Text="" align="center"></asp:Label>
             <br />
 
             <!-- Formulario de búsqueda -->
             <div class="row">
                 <div class="col-md-4">
                     <span class="h4">Ingresar Ciudad a buscar</span>
-                    <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Ciudad" required="true" minlength="5"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" class="form-control" placeholder="Ciudad" required="true" minlength="3"></asp:TextBox>
                 </div>
                 <div class="col-md-4">
                     <span class="h4">Ingresar Código de País</span>

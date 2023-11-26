@@ -97,12 +97,13 @@ namespace Producto3
                 }
                 catch (Exception)
                 {
-                    Label1.Text = Sw.Error;
+                    Label1.Text = "Ciudad o país no encontrado. Verifique la información ingresada.";
+                    return;
                 }
             }
             else
             {
-                Label121.Text = "Código de País no encontrado";
+                Label1.Text = "Código de País no encontrado";
             }
         }
 
