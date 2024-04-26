@@ -129,7 +129,7 @@
                     <br />
                     <h4 align="center">Precio Por litro de Gasolina en México</h4>
                     <br />
-                        <iframe width="680" frameborder="0" runat="server" id="gasolina"></iframe>
+                        <iframe src="https://petrointelligence.com/api/api_precios.html?consulta=estado&estado=PUE" width="680" frameborder="0" runat="server" id="gasolina"></iframe>
                 </div>
             </div>
         </div>

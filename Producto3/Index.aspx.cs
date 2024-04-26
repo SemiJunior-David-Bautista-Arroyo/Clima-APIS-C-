@@ -68,6 +68,8 @@ namespace Producto3
                 await Sw.ObtenerCoordenadasAsync();
                 await Sw.ObtenerClimaAsync();
                 MostrarDatosClimatologicos();//Metodo para mostrar los datos
+                
+
 
 
             }

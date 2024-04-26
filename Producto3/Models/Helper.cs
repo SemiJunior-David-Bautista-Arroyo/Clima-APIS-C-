@@ -85,10 +85,7 @@ namespace Producto3.Models
             return root.lon;
         }
 
-        public string Name()
-        {
-            return (root.name);
-        }
+        
 
         //Utilizar segundo API y obtener datos del clima etc.
         Clima Clima;
@@ -135,6 +132,10 @@ namespace Producto3.Models
 
         }
 
+        public string Name()
+        {
+            return (root.name);
+        }
         //Obtener datos del clima
         public double TemperaturaActual()
         {
